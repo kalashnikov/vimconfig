@@ -12,7 +12,7 @@ defutf8 on
 altscreen on
 
 # Dynamic title
-shelltitle '$ |bash'
+shelltitle '$ |'
 
 # Disable vbell
 vbell off
