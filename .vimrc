@@ -229,24 +229,36 @@ xmap <s-tab> <gv
 nmap [] [{   
 nmap ][ ]}
 
+
 " Jump to next/previous tab
 nmap '' gt
 nmap ;; gT
+
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
+
 " Move to other window
 map mm <C-W><C-W>
+
 
 " Use Shift-D & Shift-F for PageUp/PageDown
 map <S-D> <C-B>
 map <S-F> <C-F>
 
+
 " Use q/o for Home/End
 map q 0
 map o $
+
+
+" Reload .vimrc
+map <leader>r :so $MYVIMRC<CR>
+
+" Open file on cursor in new Tab
+map tf <C-W>gf
 
 
 " ===========================================================================
