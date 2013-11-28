@@ -219,6 +219,27 @@ nmap <leader>0 :TrinityToggleNERDTree<CR>
 "
 "=========================================================
 
+"===========================================================================
+"
+"  Key Mapping
+"  Ref: http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
+"  Example: http://amix.dk/vim/vimrc.html
+"
+"===========================================================================
+
+" Map key to toggle opt
+function MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+command -nargs=+ MapToggle call MapToggle(<f-args>)
+
+MapToggle <leader>ig ignorecase
+MapToggle <leader>pa paste
+MapToggle <leader>nu nonu
+
+
 " indent
 nmap <tab>   V>
 nmap <s-tab> V<
@@ -316,3 +337,8 @@ map tf <C-W>gf
 "   :v/./.,/./-1join : compress empty lines
 "   :'a,'b g/^Error/ . w >> errors.txt
 "   :g/cmap\|form/p  : ORing
+"
+
+" Highlight Setting
+hi Search cterm=NONE ctermfg=DarkBlue ctermbg=Yellow
+
