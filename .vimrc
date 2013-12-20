@@ -39,9 +39,14 @@ syntax on
 " ColorScheme
 "
 "=========================
-colorscheme ir_black
+"colorscheme ir_black
 "colorscheme desert
 "colorscheme peaksea
+
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 
 "==================================================================
@@ -103,9 +108,6 @@ Bundle 'bling/vim-airline'
 Bundle 'mileszs/ack.vim'
 Bundle 'fcamel/gj'
 
-" Need Compile
-Bundle 'Valloric/YouCompleteMe'
-
 filetype plugin indent on     " required!
 "
 " Brief help
@@ -117,6 +119,9 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 "
+
+set encoding=utf-8
+set laststatus=2
 
 "======================================================
 "
@@ -219,27 +224,6 @@ nmap <leader>0 :TrinityToggleNERDTree<CR>
 "
 "=========================================================
 
-"===========================================================================
-"
-"  Key Mapping
-"  Ref: http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
-"  Example: http://amix.dk/vim/vimrc.html
-"
-"===========================================================================
-
-" Map key to toggle opt
-function MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-command -nargs=+ MapToggle call MapToggle(<f-args>)
-
-MapToggle <leader>ig ignorecase
-MapToggle <leader>pa paste
-MapToggle <leader>nu nonu
-
-
 " indent
 nmap <tab>   V>
 nmap <s-tab> V<
@@ -250,36 +234,24 @@ xmap <s-tab> <gv
 nmap [] [{   
 nmap ][ ]}
 
-
 " Jump to next/previous tab
 nmap '' gt
 nmap ;; gT
-
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
-
 " Move to other window
 map mm <C-W><C-W>
-
 
 " Use Shift-D & Shift-F for PageUp/PageDown
 map <S-D> <C-B>
 map <S-F> <C-F>
 
-
 " Use q/o for Home/End
 map q 0
 map o $
-
-
-" Reload .vimrc
-map <leader>r :so $MYVIMRC<CR>
-
-" Open file on cursor in new Tab
-map tf <C-W>gf
 
 
 " ===========================================================================
@@ -337,8 +309,6 @@ map tf <C-W>gf
 "   :v/./.,/./-1join : compress empty lines
 "   :'a,'b g/^Error/ . w >> errors.txt
 "   :g/cmap\|form/p  : ORing
-"
 
 " Highlight Setting
 hi Search cterm=NONE ctermfg=DarkBlue ctermbg=Yellow
-
