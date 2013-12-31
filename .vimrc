@@ -185,16 +185,6 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 
-""""""""""""""""""""""""""""""""
-"" YouCompleteMe 
-""""""""""""""""""""""""""""""""
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '/home/kkuo/.ycm_extra_conf.py'
-
-
 " --------------------------
 "  vim-airline
 " --------------------------
@@ -311,4 +301,4 @@ map o $
 "   :g/cmap\|form/p  : ORing
 
 " Highlight Setting
-hi Search cterm=NONE ctermfg=DarkBlue ctermbg=Yellow
+"hi Search cterm=NONE ctermfg=DarkBlue ctermbg=Yellow
