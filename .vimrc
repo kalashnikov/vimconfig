@@ -190,6 +190,18 @@ let g:ctrlp_cmd = 'CtrlP'
 " --------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'badwolf'
+" Fast-Switch to input-mode
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+set ttimeoutlen=50
+
 
 
 " --------------------------
