@@ -107,6 +107,7 @@ Bundle 'vim-scripts/mru.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mileszs/ack.vim'
 Bundle 'fcamel/gj'
+Bundle 'ap/vim-css-color'
 
 filetype plugin indent on     " required!
 "
