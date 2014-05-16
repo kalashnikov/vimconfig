@@ -39,12 +39,13 @@ syntax on
 " ColorScheme
 "
 "=========================
-"colorscheme ir_black
-"colorscheme desert
-"colorscheme peaksea
-
 syntax enable
-set background=dark
+"set background=dark
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termtrans = 1      " For Mac iTerm
+set guifont=Droid\ Sans\ Mono\ for\ Powerline.otf:h14
+let g:Powerline_symbols = 'fancy'
 let g:solarized_termcolors=256
 colorscheme solarized
 
@@ -106,7 +107,6 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mileszs/ack.vim'
-Bundle 'fcamel/gj'
 Bundle 'ap/vim-css-color'
 
 filetype plugin indent on     " required!
@@ -123,6 +123,11 @@ filetype plugin indent on     " required!
 
 set encoding=utf-8
 set laststatus=2
+
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+set tags=./tags,tags;
+set autochdir
+
 
 "======================================================
 "
@@ -146,7 +151,6 @@ let mapleader = ","
 " v    to open in vertical split
 " gv   to open in vertical split silently
 " q    to close the quickfix window
-
 
 " --------------------------
 " mru.vim
@@ -256,6 +260,9 @@ map <S-F> <C-F>
 map q 0
 map o $
 
+
+" " Open and close the NERD Tree separately 
+nmap <leader>nu :set nonu<CR> 
 
 " ===========================================================================
 "
