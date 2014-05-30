@@ -103,11 +103,16 @@ Bundle 'wesleyche/SrcExpl'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wesleyche/Trinity'
 
+Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mileszs/ack.vim'
+
+Bundle 'groenewege/vim-less'
 Bundle 'ap/vim-css-color'
+
+Bundle 'nathanaelkane/vim-indent-guides'
 
 filetype plugin indent on     " required!
 "
@@ -207,6 +212,14 @@ if ! has('gui_running')
 endif
 set ttimeoutlen=50
 
+" --------------------------
+"  Indent_Guide 
+" --------------------------
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=black
+let g:indent_guides_guide_size  = 1
+let g:indent_guides_start_level = 2
 
 
 " --------------------------
