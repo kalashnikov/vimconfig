@@ -39,14 +39,13 @@ syntax on
 " ColorScheme
 "
 "=========================
+"colorscheme ir_black
+"colorscheme desert
+"colorscheme peaksea
+
 syntax enable
-"set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termtrans = 1      " For Mac iTerm
-set guifont=Droid\ Sans\ Mono\ for\ Powerline.otf:h14
-let g:Powerline_symbols = 'fancy'
 let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
 
 
@@ -103,16 +102,27 @@ Bundle 'wesleyche/SrcExpl'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wesleyche/Trinity'
 
-Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'bling/vim-airline'
 Bundle 'mileszs/ack.vim'
 
 Bundle 'groenewege/vim-less'
-Bundle 'ap/vim-css-color'
+Bundle 'skammer/vim-css-color'
 
 Bundle 'nathanaelkane/vim-indent-guides'
+
+Bundle 'elixir-lang/vim-elixir'
+
+Bundle 'fatih/vim-go'
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_fail_silently = 1
 
 filetype plugin indent on     " required!
 "
@@ -127,14 +137,23 @@ filetype plugin indent on     " required!
 "
 
 set encoding=utf-8
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
+set guifont=Monaco:h11
+"set guifontwide=NSimsun:h12
+set guifontwide=Latha
+
+" For Japanese
+set fenc=utf-8
+set fencs=iso-2022-jp,sjis,euc-jp
+
 set laststatus=2
 
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-set tags=./tags,tags;
+set tags=~/tags,tags;
 set autochdir
 
-
-"======================================================
+    "======================================================
 "
 "         Section for Plugin Hotkey Setting
 " 
@@ -156,6 +175,7 @@ let mapleader = ","
 " v    to open in vertical split
 " gv   to open in vertical split silently
 " q    to close the quickfix window
+
 
 " --------------------------
 " mru.vim
@@ -221,7 +241,6 @@ hi IndentGuidesEven ctermbg=black
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_start_level = 2
 
-
 " --------------------------
 "  Trinity
 " --------------------------
@@ -272,7 +291,6 @@ map <S-F> <C-F>
 " Use q/o for Home/End
 map q 0
 map o $
-
 
 " " Open and close the NERD Tree separately 
 nmap <leader>nu :set nonu<CR> 
