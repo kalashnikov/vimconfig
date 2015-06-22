@@ -45,6 +45,13 @@ syntax on
 
 syntax enable
 let g:solarized_termcolors=256
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termtrans = 1      " For Mac iTerm
+set guifont=Droid\ Sans\ Mono\ for\ Powerline.otf:h14
+let g:Powerline_symbols = 'fancy'
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
