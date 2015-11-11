@@ -70,6 +70,8 @@ Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 "=========================
@@ -151,7 +153,6 @@ let MRU_Max_Entries = 20
 " --------------------------
 map <silent> <Leader>n :NERDTreeToggle<CR>
 
-
 " --------------------------
 " tabbar
 " --------------------------
@@ -208,6 +209,59 @@ nmap <leader>9 :TrinityToggleTagList<CR>
 " " Open and close the NERD Tree separately 
 nmap <leader>0 :TrinityToggleNERDTree<CR> 
 
+" --------------------------
+" Goyo: distraction-free plugin
+" --------------------------
+" :Goyo
+"   Toggle Goyo
+nmap <leader>g :Goyo<CR> 
+" :Goyo [dimension]
+"   Turn on or resize Goyo
+" :Goyo!
+"   Turn Goyo off
+
+
+" --------------------------
+"  fzf: powerful fuzzy search  
+" --------------------------
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+"=========================================================
+" Search lines in all file opened
+" https://github.com/junegunn/fzf/wiki/Examples-(vim)
+function! s:line_handler(l)
+  let keys = split(a:l, ':\t')
+  exec 'buf' keys[0]
+  exec keys[1]
+  normal! ^zz
+endfunction
+
+function! s:buffer_lines()
+  let res = []
+  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+  endfor
+  return res
+endfunction
+
+command! FZFLines call fzf#run({
+\   'source':  <sid>buffer_lines(),
+\   'sink':    function('<sid>line_handler'),
+\   'options': '--extended --nth=3..',
+\   'down':    '60%'
+\})
+"=========================================================
+
+map <silent> <Leader>f :FZFLines<CR>
+map <silent> <Leader>ff :FZF<CR>
 
 "=========================================================
 "
