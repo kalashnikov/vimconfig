@@ -68,6 +68,8 @@ Plug 'fatih/vim-go'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 call plug#end()
 
 "=========================
@@ -244,8 +246,8 @@ map o $
 
 
 nmap <leader>nu :set nonu<CR> 
-
 nmap <leader>pa :set paste<CR> 
+nmap <leader>a :Startify<CR> 
 
 
 if has('nvim')
@@ -313,8 +315,9 @@ let g:startify_skiplist = [
           \ ]
 
 let g:startify_bookmarks = [
-          \ { 'v': '~/.vim/vimrc' },
-          \ { 't': '/tmp' },
+          \ { 'v': '~/.vimrc' },
+          \ { 'z': '~/.zshrc' },
+          \ { 'a': '~/.alias' },
           \ ]
 
 let g:startify_custom_footer =
