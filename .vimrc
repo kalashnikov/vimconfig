@@ -4,24 +4,25 @@
 " Cleaned @ 2013.11.20
 "
 "
-
+set clipboard=unnamed
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+set hidden
 
 set ic           " Search Ignore Case
 set nu           " Show Line# 
 set ruler		 " show the cursor position all the time
 set showcmd		 " display incomplete commands
 set incsearch	 " do incremental searching
-set t_Co=256
 set history=1000 " History Limit
 
-set et ts=4
-set tabstop=4
-set tabstop=4
-set shiftwidth=4
+set et ts=2
+set tabstop=2
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent 
 set smartindent
@@ -32,116 +33,68 @@ set helplang=cn
 
 set backspace=indent,eol,start " Important!! Delete may result arraow cursor misfunction.
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let base16colorspace=256
+set t_Co=256
+
 syntax on
 
-"=========================
-"
-" ColorScheme
-"
-"=========================
-"colorscheme ir_black
-"colorscheme desert
-"colorscheme peaksea
-
-syntax enable
-let g:solarized_termcolors=256
-
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:solarized_termtrans = 1      " For Mac iTerm
-set guifont=Droid\ Sans\ Mono\ for\ Powerline.otf:h14
-let g:Powerline_symbols = 'fancy'
-let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-
-
-"==================================================================
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  augroup END
-else
-endif " has("autocmd")
-
-"==================================================================
-
-
-" Pathogen Bundle Manager
-execute pathogen#infect()
+filetype off                  " required!
 
 "============================================
 "
-"     Vundle Section 
+"     Section 
 "
 "===========================================
-filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+Plug 'morhetz/gruvbox'
+Plug 'gmarik/vundle'
 
-Bundle 'wesleyche/SrcExpl'
-Bundle 'scrooloose/nerdtree'
-Bundle 'wesleyche/Trinity'
+Plug 'wesleyche/SrcExpl'
+Plug 'scrooloose/nerdtree'
+Plug 'wesleyche/Trinity'
 
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/mru.vim'
-Bundle 'bling/vim-airline'
-Bundle 'mileszs/ack.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/mru.vim'
+Plug 'vim-scripts/Align'
 
-Bundle 'groenewege/vim-less'
-Bundle 'skammer/vim-css-color'
+Plug 'bling/vim-airline'
+Plug 'mileszs/ack.vim'
+Plug 'ap/vim-css-color'
 
-Bundle 'nathanaelkane/vim-indent-guides'
+Plug 'elixir-lang/vim-elixir'
 
-Bundle 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go'
 
-Bundle 'fatih/vim-go'
+call plug#end()
+
+"=========================
+" ColorScheme
+"=========================
+syntax enable
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"let g:solarized_termtrans = 1      " For Mac iTerm
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline.otf:h14
+"let g:solarized_termcolors=256
+"set background=dark
+"colorscheme solarized
+
+"let g:gruvbox_italic=1
+colorscheme gruvbox
+set background=dark
+let g:Powerline_symbols = 'fancy'
+"=========================
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_fail_silently = 1
 
 filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-"
 
 set encoding=utf-8
 set enc=utf-8
@@ -149,18 +102,18 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
 set guifont=Monaco:h11
 "set guifontwide=NSimsun:h12
-set guifontwide=Latha
+"set guifontwide=Latha
 
-" For Japanese
-set fenc=utf-8
 set fencs=iso-2022-jp,sjis,euc-jp
 
 set laststatus=2
 
-set tags=~/tags,tags;
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+set tags=./tags,tags;
 set autochdir
 
-    "======================================================
+
+"======================================================
 "
 "         Section for Plugin Hotkey Setting
 " 
@@ -183,7 +136,6 @@ let mapleader = ","
 " gv   to open in vertical split silently
 " q    to close the quickfix window
 
-
 " --------------------------
 " mru.vim
 " --------------------------
@@ -204,7 +156,6 @@ map <silent> <Leader>b :TagbarToggle<CR>
 let g:tagbar_left = 1
 "let g:tagbar_right = 1
 let g:tagbar_width = 70
-
 
 " --------------------------
 " taglist
@@ -238,15 +189,6 @@ if ! has('gui_running')
     augroup END
 endif
 set ttimeoutlen=50
-
-" --------------------------
-"  Indent_Guide 
-" --------------------------
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=black
-let g:indent_guides_guide_size  = 1
-let g:indent_guides_start_level = 2
 
 " --------------------------
 "  Trinity
@@ -299,8 +241,46 @@ map <S-F> <C-F>
 map q 0
 map o $
 
-" " Open and close the NERD Tree separately 
+
 nmap <leader>nu :set nonu<CR> 
+
+nmap <leader>pa :set paste<CR> 
+
+
+if has('nvim')
+  runtime! plugin/python_setup.vim
+endif
+
+"==================================================================
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  augroup END
+else
+endif " has("autocmd")
+
+"==================================================================
 
 " ===========================================================================
 "
