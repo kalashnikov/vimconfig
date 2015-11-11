@@ -1,7 +1,7 @@
 "
 " KKUO's VIMRC 
 "
-" Cleaned @ 2013.11.20
+" Cleaned @ 2015.11.11
 "
 "
 set clipboard=unnamed
@@ -9,6 +9,7 @@ set clipboard=unnamed
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set t_Co=256
 
 set hidden
 
@@ -35,11 +36,8 @@ set backspace=indent,eol,start " Important!! Delete may result arraow cursor mis
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let base16colorspace=256
-set t_Co=256
 
 syntax on
-
-filetype off                  " required!
 
 "============================================
 "
@@ -68,6 +66,8 @@ Plug 'elixir-lang/vim-elixir'
 
 Plug 'fatih/vim-go'
 
+Plug 'mhinz/vim-startify'
+
 call plug#end()
 
 "=========================
@@ -94,6 +94,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+filetype off                  " required!
 filetype plugin indent on     " required!
 
 set encoding=utf-8
@@ -281,6 +282,57 @@ else
 endif " has("autocmd")
 
 "==================================================================
+
+"==================================================================
+" Startify
+
+autocmd User Startified setlocal cursorline
+
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 8
+let g:startify_relative_path          = 1
+let g:startify_change_to_dir          = 1
+let g:startify_session_autoload       = 1
+let g:startify_session_persistence    = 1
+let g:startify_session_delete_buffers = 1
+
+let g:startify_list_order = [
+\ ['   LRU:'],
+\ 'files',
+\ ['   LRU within this dir:'],
+\ 'dir',
+\ ['   Sessions:'],
+\ 'sessions',
+\ ['   Bookmarks:'],
+\ 'bookmarks',
+\ ]
+
+let g:startify_skiplist = [
+          \ 'COMMIT_EDITMSG',
+          \ 'bundle/.*/doc',
+          \ ]
+
+let g:startify_bookmarks = [
+          \ { 'v': '~/.vim/vimrc' },
+          \ { 't': '/tmp' },
+          \ ]
+
+let g:startify_custom_footer =
+    \ ['', "   Do what make you happier.", '']
+
+let g:startify_custom_header =
+    \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+
+
 
 " ===========================================================================
 "
