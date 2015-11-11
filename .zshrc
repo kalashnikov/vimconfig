@@ -108,8 +108,13 @@ if [ -d "$GHC_DOT_APP" ]; then
   export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
 
+# ============
 # fzf exmaple 
-#
+# https://github.com/junegunn/fzf/wiki/examples
+# ============
+
+alias f="fe" # editing 
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -137,3 +142,5 @@ cdg() {
   fi
 }
 export -f cdg > /dev/null
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
