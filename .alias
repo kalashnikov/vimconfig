@@ -1,0 +1,26 @@
+
+alias mkIcon="mkdir ${TMPDIR}/com.apple.IconServices"
+alias killfinder="rm ~/Library/Preferences/com.apple.finder.plist&&killall Finder"
+
+alias lrt="ll -lrt"
+alias lrs="ll -lrS"
+alias lsa="ll -la"
+alias ..="cd .."
+alias ...="cd..."
+
+#alias vm="/usr/local/Cellar/vim/7.4.161/bin/vim"
+#alias vim="/usr/local/bin/vim -p"
+alias vim="nv -p"
+alias v="vim"
+
+alias nv="nvim"
+
+alias t0="tmux attach -t 0"
+alias t1="tmux attach -t 1"
+
+alias la='cd `ls -rtd */ | tail -1`'
+
+# Port: 8000
+alias pServer="python -m SimpleHTTPServer"
+
+alias agf="ag --nobreak --nonumbers --noheading . | fzf"

@@ -46,3 +46,8 @@ Colour20\238,232,213\
 Colour21\253,246,227\
 
 --------
+
+### Instruction 
+- Copy `.font*` to `$HOME` folder
+
+--------
