@@ -113,34 +113,7 @@ fi
 # https://github.com/junegunn/fzf/wiki/examples
 # ============
 
-alias f="fe" # editing 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fe() {
-  local file
-  file=$(fzf --query="$1" --select-1 --exit-0)
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
-}
-
-# cdf - cd into the directory of the selected file
-cdf() {
-  local file
-  local dir
-  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
-
-# Setup cdg function
-# ------------------
-unalias cdg 2> /dev/null
-cdg() {
-  local dest_dir=$(cdscuts_glob_echo | fzf )
-  if [[ $dest_dir != '' ]]; then
-    cd "$dest_dir"
-  fi
-}
-export -f cdg > /dev/null
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
