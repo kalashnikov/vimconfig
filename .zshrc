@@ -78,6 +78,13 @@ source ~/.alias
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Align with .tmux.conf
+# Tmux is relatively picky about having a terminal set correctly. 
+# If you can, set the term value in gnome-terminal's configuration, not in your .bashrc. 
+# Failing that, surround those settings with a check for "screen" or "screen-256color" TERM, and don't reset them in that case.
+# http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
+export TERM="screen-256color"
+
 export CSCOPE_DB="cscope.out"
 
 # For rbenv
