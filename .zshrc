@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/Users/kalaexj/.oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -52,14 +52,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/kalaexj/bin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=$PATH:$ANDROID_HOME/platform-tools:/Users/kalaexj/bin/gradle/bin
-export ANDROID_HOME=/Users/kalaexj/Documents/android-sdk/
+#export PATH=$PATH:$ANDROID_HOME/platform-tools:/Users/kalaexj/bin/gradle/bin
+#export ANDROID_HOME=/Users/kalaexj/Documents/android-sdk/
 
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Users/kalaexj/bin/lib
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Users/kalaexj/bin/lib
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/bin/lib
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/bin/lib
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -76,13 +76,13 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Users/kalaexj/bin/lib
 
 source ~/.alias
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export CSCOPE_DB="cscope.out"
 
 # For rbenv
-eval "$(rbenv init -)"
-export RBENV_VERSION="2.2.2"
+#eval "$(rbenv init -)"
+#export RBENV_VERSION="2.2.2"
 
 export DEFAULT_USER="KalaKuo"
 
@@ -90,15 +90,13 @@ export GOPATH=$HOME/github/algoPrac/go/
 export GOROOT=/usr/local/go/
 export GOMAXPROCS=4
 
-export PATH=/Users/kalaexj/torch/install/bin:/Users/kalaexj/.rvm/gems/ruby-2.2.2/bin:$GOPATH/bin/$PATH:$HOME/anaconda/bin
-export LD_LIBRARY_PATH=/Users/kalaexj/torch/install/lib:$LD_LIBRARY_PATH 
-export DYLD_LIBRARY_PATH=/Users/kalaexj/torch/install/lib:$DYLD_LIBRARY_PATH 
+#export PATH=$HOME/torch/install/bin:$HOME/.rvm/gems/ruby-2.2.2/bin:$GOPATH/bin/$PATH:$HOME/anaconda/bin
+#export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH 
+#export DYLD_LIBRARY_PATH=$HOME/torch/install/lib:$DYLD_LIBRARY_PATH 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-rvm use 2.2.2
-
-export HOSTNAME="KalaKuo"
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#rvm use 2.2.2
+#export HOSTNAME="KalaKuo"
 
 export CLICOLOR=1
 
