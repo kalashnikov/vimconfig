@@ -298,11 +298,10 @@ map <S-F> <C-F>
 map q 0
 map o $
 
+set pastetoggle=<leader>p
 
-nmap <leader>nu :set nonu<CR> 
-nmap <leader>pa :set paste<CR> 
+nmap <leader>nu :set nonu!<CR> 
 nmap <leader>a :Startify<CR> 
-
 
 if has('nvim')
   runtime! plugin/python_setup.vim
