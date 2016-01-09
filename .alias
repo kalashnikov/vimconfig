@@ -24,3 +24,36 @@ alias la='cd `ls -rtd */ | tail -1`'
 alias pServer="python -m SimpleHTTPServer"
 
 alias agf="ag --nobreak --nonumbers --noheading . | fzf"
+
+# Server loading check command
+# http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html
+#
+# uptime
+# dmesg | tail
+# vmstat 1
+# mpstat -P ALL 1
+# pidstat 1
+# iostat -xz 1
+# free -m
+# sar -n DEV 1
+# sar -n TCP,ETCP 1
+# top
+
+# Utilites
+# Ref: https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md
+#      https://github.com/jlevy/the-art-of-command-line/blob/master/README.md
+#
+# Use "httpie" instead of "curl"
+#     "htop"   instead of "top" 
+#     "ncdu"   instead of "du -sh *" 
+#     "mtr"    instead of "trace" 
+#
+# Use "glacnes" for overall monitoring. 
+# Use "iostat", "netstat", "vmstat", "sar".  
+# 
+# Know about strace and ltrace. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. 
+# Note the profiling option (-c), and the ability to attach to a running process (-p).
+#
+# Use /proc. It's amazingly helpful sometimes when debugging live problems. 
+# Examples: /proc/cpuinfo, /proc/meminfo, /proc/cmdline, /proc/xxx/cwd, /proc/xxx/exe, /proc/xxx/fd/, /proc/xxx/smaps (where xxx is the process id or pid).
+#
