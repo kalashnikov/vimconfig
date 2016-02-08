@@ -61,6 +61,12 @@ Plug 'vim-scripts/Align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'ervandew/supertab'
+
+" Execute the :UpdateRemotePlugins and restart Neovim.
+" Then, execute the :DeopleteEnable<Paste>
+Plug 'Shougo/deoplete.nvim'
+
 Plug 'mileszs/ack.vim'
 Plug 'ap/vim-css-color'
 
@@ -186,6 +192,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " --------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+"let g:airline_theme = 'badwolf'
 " Fast-Switch to input-mode
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -345,6 +352,8 @@ endif " has("autocmd")
 " Startify
 
 autocmd User Startified setlocal cursorline
+
+let g:deoplete#enable_at_startup      = 1
 
 let g:startify_enable_special         = 0
 let g:startify_files_number           = 8
