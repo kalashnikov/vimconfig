@@ -58,7 +58,9 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/mru.vim'
 Plug 'vim-scripts/Align'
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'mileszs/ack.vim'
 Plug 'ap/vim-css-color'
 
@@ -71,6 +73,8 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/goyo.vim'
+
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -182,7 +186,6 @@ let g:ctrlp_cmd = 'CtrlP'
 " --------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'badwolf'
 " Fast-Switch to input-mode
 if ! has('gui_running')
     set ttimeoutlen=10
