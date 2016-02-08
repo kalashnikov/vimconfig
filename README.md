@@ -19,5 +19,16 @@ Kala Kuo's Config Repository
 
 ### Fonts for `powerline`
 - `cp -rf .font* ~/`
+- For OSX, copy `*.otf` to `/Library/Fonts/`
+
+---
+
+### iTerm2 Setting
+- `wget https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors`
+- iTerm -> Preferences -> Profiles -> Colors -> load presets -> Import
+- Fonts recommend: `Droid Sans Mono for Powerline`, size: 14 or 18 
+- Hotkey: 
+  + `Command+;`: F11 `^[[23~` (Not `^[[23;2~`) 
+  + `Command+'`: F12 `^[[24~` (Not `^[[24;2~`) 
 
 ---
