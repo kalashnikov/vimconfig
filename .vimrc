@@ -47,40 +47,41 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 
+" Theme
 Plug 'morhetz/gruvbox'
-Plug 'gmarik/vundle'
-
-Plug 'wesleyche/SrcExpl'
-Plug 'scrooloose/nerdtree'
-Plug 'wesleyche/Trinity'
-
-Plug 'vim-scripts/taglist.vim'
-Plug 'vim-scripts/mru.vim'
-Plug 'vim-scripts/Align'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Autocomplete
 Plug 'ervandew/supertab'
-
 " Execute the :UpdateRemotePlugins and restart Neovim.
 " Then, execute the :DeopleteEnable<Paste>
 Plug 'Shougo/deoplete.nvim'
 
-Plug 'mileszs/ack.vim'
-Plug 'ap/vim-css-color'
+" Tag
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/taglist.vim'
 
+" Language Support
 Plug 'elixir-lang/vim-elixir'
-
 Plug 'fatih/vim-go'
 
-Plug 'mhinz/vim-startify'
-
+" Search
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-Plug 'junegunn/goyo.vim'
-
+" Frontend
 Plug 'mxw/vim-jsx'
+Plug 'ap/vim-css-color'
+
+" Misc
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/mru.vim'
+Plug 'vim-scripts/Align'
+Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-signify'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -100,13 +101,8 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 let g:Powerline_symbols = 'fancy'
-"=========================
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+"=========================
 
 filetype off                  " required!
 filetype plugin indent on     " required!
@@ -157,6 +153,19 @@ let mapleader = ","
 map <silent> <leader>m :MRU<cr>
 let MRU_Max_Entries = 20
 
+" --------------------------
+" Signify 
+" --------------------------
+let g:signify_vcs_list = [ 'cvs', 'git' ]
+
+" --------------------------
+" vim-go 
+" --------------------------
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " --------------------------
 " NERDTree 
@@ -178,14 +187,12 @@ map <silent> <leader>t :TlistToggle<cr>
 let Tlist_WinWidth = 50
 let tlist_cpp_settings = 'c++;n:namespace;v:variable;d:macro;t:typedef;c:class;g:enum;s:struct;u:union;f:function;o:todo;k:tricky'
 
-
 " --------------------------
 " ctrlp 
 " --------------------------
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
 
 " --------------------------
 "  vim-airline
@@ -203,21 +210,6 @@ if ! has('gui_running')
     augroup END
 endif
 set ttimeoutlen=50
-
-" --------------------------
-"  Trinity
-" --------------------------
-" Open and close all the three plugins on the same time 
-nmap <leader>7  :TrinityToggleAll<CR> 
-"
-" " Open and close the Source Explorer separately 
-nmap <leader>8  :TrinityToggleSourceExplorer<CR> 
-"
-" " Open and close the Taglist separately 
-nmap <leader>9 :TrinityToggleTagList<CR> 
-"
-" " Open and close the NERD Tree separately 
-nmap <leader>0 :TrinityToggleNERDTree<CR> 
 
 " --------------------------
 " Goyo: distraction-free plugin
@@ -400,7 +392,7 @@ hi StartifyPath    ctermfg=245
 hi StartifySlash   ctermfg=240
 hi StartifySpecial ctermfg=240
 
-
+" ===========================================================================
 
 " ===========================================================================
 "
