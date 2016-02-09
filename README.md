@@ -1,4 +1,4 @@
-Kala Kuo's Config Repository
+## Kala Kuo's Config Repository
 
 ---
 
@@ -21,9 +21,10 @@ Kala Kuo's Config Repository
 - [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
   + [Compile CMake with SSL support](https://github.com/neovim/neovim/issues/1469#issuecomment-63058312), [Ref2](http://stackoverflow.com/questions/29816529/unsupported-protocol-while-downlod-tar-gz-package)
   + [Prefix issue](https://github.com/neovim/neovim/issues/2111)
+  + `make CMAKE_EXTRA_FLAGS=-DCMAKE_INSTALL_PREFIX=/path/ CMAKE_BUILD_TYPE=Release`
 - [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
-- [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
-- 24-Color
+- [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim), need `python3` support.
+- **24-Color**
   + [Neovim](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
   + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is support recently. 
 
