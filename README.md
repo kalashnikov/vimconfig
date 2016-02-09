@@ -23,6 +23,9 @@ Kala Kuo's Config Repository
   + [Prefix issue](https://github.com/neovim/neovim/issues/2111)
 - [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
 - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
+- 24-Color
+  + [Neovim](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
+  + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is support recently. 
 
 ---
 
