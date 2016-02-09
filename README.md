@@ -17,6 +17,15 @@ Kala Kuo's Config Repository
 
 ---
 
+### Neovim 
+- [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
+  + [Compile CMake with SSL support](https://github.com/neovim/neovim/issues/1469#issuecomment-63058312), [Ref2](http://stackoverflow.com/questions/29816529/unsupported-protocol-while-downlod-tar-gz-package)
+  + [Prefix issue](https://github.com/neovim/neovim/issues/2111)
+- [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
+- [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
+
+---
+
 ### Fonts for `powerline`
 - `cp -rf .font* ~/`
 - For OSX, copy `*.otf` to `/Library/Fonts/`
@@ -24,9 +33,10 @@ Kala Kuo's Config Repository
 ---
 
 ### iTerm2 Setting
-- `wget https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors`
 - iTerm -> Preferences -> Profiles -> Colors -> load presets -> Import
-- Fonts recommend: `Droid Sans Mono for Powerline`, size: 14 or 18 
+- Fonts recommend: 
+  + `Droid Sans Mono for Powerline`, size: 14+
+  + `FantasqueSansMono`, size: 16+, used with [gruvbox](https://github.com/morhetz/gruvbox) theme 
 - Hotkey: 
   + `Command+;`: F11 `^[[23~` (Not `^[[23;2~`) 
   + `Command+'`: F12 `^[[24~` (Not `^[[24;2~`) 
