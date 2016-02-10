@@ -75,6 +75,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color'
 
 " Misc
+Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/mru.vim'

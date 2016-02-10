@@ -51,32 +51,16 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-#export PATH=$PATH:$ANDROID_HOME/platform-tools:/Users/kalaexj/bin/gradle/bin
-#export ANDROID_HOME=/Users/kalaexj/Documents/android-sdk/
-
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/bin/lib
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$HOME/bin/lib
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH 
+#export DYLD_LIBRARY_PATH=$HOME/torch/install/lib:$DYLD_LIBRARY_PATH 
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 source ~/.alias
-
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Align with .tmux.conf
 # Tmux is relatively picky about having a terminal set correctly. 
@@ -85,27 +69,14 @@ source ~/.alias
 # http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux
 export TERM="screen-256color"
 
-export CSCOPE_DB="cscope.out"
-
-# For rbenv
-#eval "$(rbenv init -)"
-#export RBENV_VERSION="2.2.2"
-
 export DEFAULT_USER="KalaKuo"
 
 export GOPATH=$HOME/github/algoPrac/go/
 export GOROOT=/usr/local/go/
 export GOMAXPROCS=4
 
-#export PATH=$HOME/torch/install/bin:$HOME/.rvm/gems/ruby-2.2.2/bin:$GOPATH/bin/$PATH:$HOME/anaconda/bin
-#export LD_LIBRARY_PATH=$HOME/torch/install/lib:$LD_LIBRARY_PATH 
-#export DYLD_LIBRARY_PATH=$HOME/torch/install/lib:$DYLD_LIBRARY_PATH 
-
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#rvm use 2.2.2
-#export HOSTNAME="KalaKuo"
-
 export CLICOLOR=1
+export CSCOPE_DB="cscope.out"
 
 # Add GHC 7.10.1 to the PATH, via https://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/ghc-7.10.1.app"
@@ -117,8 +88,6 @@ fi
 # fzf exmaple 
 # https://github.com/junegunn/fzf/wiki/examples
 # ============
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
