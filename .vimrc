@@ -15,9 +15,9 @@ set hidden
 
 set ic           " Search Ignore Case
 set nu           " Show Line# 
-set ruler		 " show the cursor position all the time
-set showcmd		 " display incomplete commands
-set incsearch	 " do incremental searching
+set ruler		     " show the cursor position all the time
+set showcmd		   " display incomplete commands
+set incsearch	   " do incremental searching
 set history=1000 " History Limit
 
 set et ts=2
@@ -35,6 +35,7 @@ set helplang=cn
 set backspace=indent,eol,start " Important!! Delete may result arraow cursor misfunction.
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let base16colorspace=256
 
 syntax on
@@ -56,7 +57,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 " Execute the :UpdateRemotePlugins and restart Neovim.
 " Then, execute the :DeopleteEnable<Paste>
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 
 " Tag
 Plug 'majutsushi/tagbar'
@@ -70,12 +71,7 @@ Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Frontend
-Plug 'mxw/vim-jsx'
-Plug 'ap/vim-css-color'
-
 " Misc
-Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/mru.vim'
@@ -83,6 +79,11 @@ Plug 'vim-scripts/Align'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/goyo.vim'
+Plug 'edkolev/tmuxline.vim'
+
+" Frontend
+Plug 'mxw/vim-jsx'
+"Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -101,7 +102,7 @@ syntax enable
 "let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 "=========================
 
@@ -111,8 +112,8 @@ filetype plugin indent on     " required!
 set encoding=utf-8
 set enc=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,utf8,prc
-set guifont=Monaco:h11
+set fileencodings=utf8,prc,ucs-bom
+"set guifont=Monaco:h11
 "set guifontwide=NSimsun:h12
 "set guifontwide=Latha
 
