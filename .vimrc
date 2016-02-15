@@ -73,13 +73,18 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Misc
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/mru.vim'
 Plug 'vim-scripts/Align'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/goyo.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" Syntax checking
+Plug 'scrooloose/syntastic'
+Plug 'nvie/vim-flake8'
 
 " Frontend
 Plug 'mxw/vim-jsx'
@@ -172,7 +177,12 @@ let g:go_highlight_build_constraints = 1
 " --------------------------
 " NERDTree 
 " --------------------------
-map <silent> <Leader>n :NERDTreeToggle<CR>
+"map <silent> <Leader>n :NERDTreeToggle<CR>
+map <silent> <Leader>n :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_console_startup = 0
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
 
 " --------------------------
 " tabbar
@@ -201,7 +211,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " --------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-"let g:airline_theme = 'badwolf'
+"let g:airline_theme = 'badwolf'   " Use gruvbox instead
 " Fast-Switch to input-mode
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -212,6 +222,23 @@ if ! has('gui_running')
     augroup END
 endif
 set ttimeoutlen=50
+
+" --------------------------
+" Syntastic
+" --------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" --------------------------
+" Flake8 
+" --------------------------
+autocmd BufWritePost *.py call Flake8()
 
 " --------------------------
 " Goyo: distraction-free plugin
@@ -302,14 +329,40 @@ map <S-F> <C-F>
 map q 0
 map o $
 
-set pastetoggle=<leader>p
+
+if !has('nvim')
+  "set pastetoggle=<f6>
+  set pastetoggle=<leader>p
+endif
 
 nmap <leader>nu :set nonu!<CR> 
 nmap <leader>a :Startify<CR> 
 
+"==================================================================
+" Config setting for different file 
+
+" Config for python file
+" https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+"au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py     set tabstop=4
+au BufNewFile,BufRead *.py     set softtabstop=4
+au BufNewFile,BufRead *.py     set shiftwidth=4
+au BufNewFile,BufRead *.py     set textwidth=79
+au BufNewFile,BufRead *.py     set expandtab
+au BufNewFile,BufRead *.py     set autoindent
+au BufNewFile,BufRead *.py     set fileformat=unix
+
+" Python setting
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+let python_highlight_all=1
 if has('nvim')
   runtime! plugin/python_setup.vim
 endif
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
 
 "==================================================================
 " Only do this part when compiled with support for autocommands.
