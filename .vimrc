@@ -4,12 +4,16 @@
 " Cleaned @ 2015.11.11
 "
 "
-set clipboard=unnamed
+if !has('nvim')
+  "set pastetoggle=<f6>
+  set pastetoggle=<leader>p
+  set clipboard=unnamed
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-set t_Co=256
+  " Use Vim settings, rather then Vi settings (much better!).
+  " This must be first, because it changes other options as a side effect.
+  set nocompatible
+  set t_Co=256
+endif
 
 set hidden
 
@@ -78,12 +82,12 @@ Plug 'vim-scripts/Align'
 Plug 'mhinz/vim-startify'
 Plug 'mhinz/vim-signify'
 Plug 'junegunn/goyo.vim'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
 " Syntax checking
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 
 " Frontend
@@ -328,12 +332,6 @@ map <S-F> <C-F>
 " Use q/o for Home/End
 map q 0
 map o $
-
-
-if !has('nvim')
-  "set pastetoggle=<f6>
-  set pastetoggle=<leader>p
-endif
 
 nmap <leader>nu :set nonu!<CR> 
 nmap <leader>a :Startify<CR> 
