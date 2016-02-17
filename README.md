@@ -24,7 +24,7 @@
   + `make CMAKE_EXTRA_FLAGS=-DCMAKE_INSTALL_PREFIX=/path/ CMAKE_BUILD_TYPE=Release`
 - [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
 - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim), need `python3` support.
-- **24-Color**
+- [**24-Color**](https://gist.github.com/XVilka/8346728)
   + [Neovim](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
   + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is support recently. 
 
