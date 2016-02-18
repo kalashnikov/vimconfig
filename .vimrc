@@ -17,6 +17,8 @@ endif
 
 set hidden
 
+set mouse-=a     " Disable selection by mouse trigger auto-visual mode
+set laststatus=2 " Make sure vim-airline show the status bar
 set ic           " Search Ignore Case
 set nu           " Show Line# 
 set ruler		     " show the cursor position all the time
@@ -127,8 +129,6 @@ set fileencodings=utf8,prc,ucs-bom
 "set guifontwide=Latha
 
 set fencs=iso-2022-jp,sjis,euc-jp
-
-set laststatus=2
 
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 set tags=./tags,tags;
