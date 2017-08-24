@@ -31,7 +31,7 @@
 - [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
 - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim), need `python3` support.
 - [**24-Color**](https://gist.github.com/XVilka/8346728)
-  + [Neovim](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
+  + [Mosh](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
   + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is support recently. 
 
 ---
