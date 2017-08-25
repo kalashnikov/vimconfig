@@ -6,6 +6,11 @@
 - Install `oh-my-zsh`.
   + `sh -c "$(curl -fsSL
   https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+- Install `powerlevel9k`
+  + `$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
+- Instal zsh plugin
+  + `git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+  + `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git`
 
 ---
 
