@@ -96,6 +96,9 @@ Plug 'nvie/vim-flake8'
 Plug 'mxw/vim-jsx'
 "Plug 'ap/vim-css-color'
 
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 "=========================
