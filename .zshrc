@@ -92,8 +92,8 @@ export LC_CTYPE=en_US.UTF-8
 #===========================================================================#
 
 # Ruby 
-eval "$(rbenv init -)"
-export RBENV_VERSION="2.2.2"
+# eval "$(rbenv init -)"
+# export RBENV_VERSION="2.2.2"
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #rvm use 2.2.2
 
@@ -116,6 +116,7 @@ fi
 # fzf exmaple 
 # https://github.com/junegunn/fzf/wiki/examples
 export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #===========================================================================#
