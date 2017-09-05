@@ -7,10 +7,13 @@
   + `sh -c "$(curl -fsSL
   https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 - Install `powerlevel9k`
-  + `$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
+  + ` git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
 - Instal zsh plugin
-  + `git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
-  + `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git`
+  + [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    + `brew install zsh-autosuggestions`
+    + `git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+  + [zsh-syntax-hightlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
+    + `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git`
 
 ---
 
