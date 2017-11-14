@@ -10,10 +10,9 @@
   + ` git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
 - Instal zsh plugin
   + [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    + `brew install zsh-autosuggestions`
     + `git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
   + [zsh-syntax-hightlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
-    + `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git`
+    + `git clone git://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
 
 ---
 
@@ -39,8 +38,8 @@
 - [Nvim from Vim](https://neovim.io/doc/user/nvim_from_vim.html)
 - [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim), need `python3` support.
 - [**24-Color**](https://gist.github.com/XVilka/8346728)
-  + [Mosh](https://github.com/mobile-shell/mosh/issues/649) does not support so far. 
-  + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is support recently. 
+  + [Mosh](https://github.com/mobile-shell/mosh/issues/649) is support recently!! 
+  + [tmux](http://sunaku.github.io/tmux-24bit-color.html#usage) is supported. 
 
 ---
 
