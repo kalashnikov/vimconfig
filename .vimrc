@@ -44,6 +44,16 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let base16colorspace=256
 
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
 syntax on
 
 "============================================
@@ -90,7 +100,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 
 " Syntax checking
 " Plug 'scrooloose/syntastic'
-Plug 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
 
 " Frontend
 Plug 'mxw/vim-jsx'
@@ -131,7 +141,7 @@ set fileencodings=utf8,prc,ucs-bom
 "set guifontwide=NSimsun:h12
 "set guifontwide=Latha
 
-set fencs=iso-2022-jp,sjis,euc-jp
+set fencs=utf-8,iso-2022-jp,sjis,euc-jp
 
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 set tags=./tags,tags;
@@ -245,7 +255,7 @@ let g:syntastic_check_on_wq = 0
 " --------------------------
 " Flake8 
 " --------------------------
-autocmd BufWritePost *.py call Flake8()
+" autocmd BufWritePost *.py call Flake8()
 
 " --------------------------
 " Goyo: distraction-free plugin
@@ -339,26 +349,28 @@ map o $
 nmap <leader>nu :set nonu!<CR> 
 nmap <leader>a :Startify<CR> 
 
+nmap <leader>s :set filetype=calibre<CR>
+
 "==================================================================
 " Config setting for different file 
 
 " Config for python file
 " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 "au BufNewFile,BufRead *.py
-au BufNewFile,BufRead *.py     set tabstop=4
-au BufNewFile,BufRead *.py     set softtabstop=4
-au BufNewFile,BufRead *.py     set shiftwidth=4
-au BufNewFile,BufRead *.py     set textwidth=79
-au BufNewFile,BufRead *.py     set expandtab
-au BufNewFile,BufRead *.py     set autoindent
-au BufNewFile,BufRead *.py     set fileformat=unix
+" au BufNewFile,BufRead *.py     set tabstop=4
+" au BufNewFile,BufRead *.py     set softtabstop=4
+" au BufNewFile,BufRead *.py     set shiftwidth=4
+" au BufNewFile,BufRead *.py     set textwidth=79
+" au BufNewFile,BufRead *.py     set expandtab
+" au BufNewFile,BufRead *.py     set autoindent
+" au BufNewFile,BufRead *.py     set fileformat=unix
 
 " Python setting
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-let python_highlight_all=1
-if has('nvim')
-  runtime! plugin/python_setup.vim
-endif
+" let python_highlight_all=1
+" if has('nvim')
+"   runtime! plugin/python_setup.vim
+" endif
 
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
