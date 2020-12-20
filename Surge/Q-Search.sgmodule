@@ -1,0 +1,16 @@
+#!name=Q-Search
+#!desc=Safari Search Add-ons by Neurogram
+
+
+[URL Rewrite]
+^https:\/\/www.google.com\/\?q=gi\+([^&]+).+ https://goodinfo.tw/StockInfo/StockDividendPolicy.asp?STOCK_ID=$1 302
+^https:\/\/www.google.com\/\?q=k\+([^&]+).+ https://kalakuo.info/line/web/$1 302
+^https:\/\/www.google.com\/\?q=ys\+([^&]+).+ https://tw.stock.yahoo.com/q/bc?s=$1 302
+^https:\/\/www.google.com\/\?q=ms\+([^&]+).+ http://financials.morningstar.com/ratios/r.html?t=$1&region=usa&culture=en-US 302
+^https:\/\/www.google.com\/\?q=sc\+([^&]+).+ https://stockcharts.com/freecharts/symbolsummary.html?sym=$1 302
+^https:\/\/www.google.com\/\?q=fi\+([^&]+).+ https://finviz.com/quote.ashx?t=$1 302
+^https:\/\/www.google.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
+
+
+[MITM]
+hostname = %APPEND% www.google.com
