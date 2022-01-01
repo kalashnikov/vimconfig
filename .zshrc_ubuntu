@@ -14,27 +14,8 @@ POWERLEVEL9K_CUSTOM_WIFI_SIGNAL="zsh_wifi_signal"
 POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_BACKGROUND="blue"
 POWERLEVEL9K_CUSTOM_WIFI_SIGNAL_FOREGROUND="yellow"
 
-zsh_wifi_signal(){
-	local output=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I) 
-	local airport=$(echo $output | grep 'AirPort' | awk -F': ' '{print $2}')
-
-	if [ "$airport" = "Off" ]; then
-		local color='%F{yellow}'
-		echo -n "%{$color%}Wifi Off"
-	else
-		local ssid=$(echo $output | grep ' SSID' | awk -F': ' '{print $2}')
-		local speed=$(echo $output | grep 'lastTxRate' | awk -F': ' '{print $2}')
-		local color='%F{yellow}'
-
-		[[ $speed -gt 100 ]] && color='%F{green}'
-		[[ $speed -lt 50 ]] && color='%F{red}'
-
-		echo -n "%{$color%}$ssid $speed Mb/s%{%f%}" # removed char not in my PowerLine font 
-	fi
-}
-
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status custom_wifi_signal ram time os_icon)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram time os_icon)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -44,8 +25,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #===========================================================================#
 
@@ -55,10 +36,10 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
 # test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 export PATH="/usr/local/bin:$PATH"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# 
 # export PATH=/Users/kalaexj/torch/install/bin:$GOPATH/bin/$PATH:$HOME/anaconda/bin:/Users/kalaexj/.rvm/gems/ruby-2.2.2/bin:/usr/local/opt/go/libexec/bin
-
+# 
 # export PATH=$PATH:$ANDROID_HOME/platform-tools:/Users/kalaexj/bin/gradle/bin
 # export ANDROID_HOME=/Users/kalaexj/Documents/android-sdk/
 
@@ -121,7 +102,7 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 #===========================================================================#
 
-# # Rust
+# Rust
 # export RUST_SRC_PATH="/Users/kalaexj/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 # source $HOME/.cargo/env
 
