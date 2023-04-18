@@ -16,16 +16,10 @@
 ---
 
 ### zsh
-- Install `oh-my-zsh`.
-  + `sh -c "$(curl -fsSL
-  https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-- Install `powerlevel9k`
-  + ` git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k`
-- Instal zsh plugin
-  + [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    + `git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
-  + [zsh-syntax-hightlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
-    + `git clone git://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
+- Install `starship`
+  + `curl -sS https://starship.rs/install.sh | sh`
+- Install Powerline theme
+  + `starship preset pastel-powerline -o ~/.config/starship.toml`
 
 ---
 
