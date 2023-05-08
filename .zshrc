@@ -1,4 +1,6 @@
 
+source ~/.alias
+
 export CSCOPE_DB="cscope.out"
 # export TERM="screen-256color"
 export TERM="xterm-256color"
@@ -91,10 +93,6 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 #===========================================================================#
 
-source ~/.alias
-
-#===========================================================================#
-
 # Ruby 
 # eval "$(rbenv init -)"
 # export RBENV_VERSION="2.2.2"
@@ -153,4 +151,7 @@ function traceroute-mapper {
 }
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
+eval "$(atuin init zsh)"
+
 eval "$(starship init zsh)"
+
