@@ -2,6 +2,7 @@
 alias mkIcon="mkdir ${TMPDIR}/com.apple.IconServices"
 alias killfinder="rm ~/Library/Preferences/com.apple.finder.plist&&killall Finder"
 
+alias ll="ls -l"
 alias lrt="ll -lrt"
 alias lrs="ll -lrS"
 alias lsa="ll -la"
