@@ -2,16 +2,16 @@
 alias mkIcon="mkdir ${TMPDIR}/com.apple.IconServices"
 alias killfinder="rm ~/Library/Preferences/com.apple.finder.plist&&killall Finder"
 
-alias ll="ls -l"
-alias lrt="ll -lrt"
-alias lrs="ll -lrS"
-alias lsa="ll -la"
+alias ll="ls -l --color"
+alias lrt="ll -lrt --color"
+alias lrs="ll -lrS --color"
+alias lsa="ll -la --color"
 alias ..="cd .."
 alias ...="cd..."
 
 #alias vm="/usr/local/Cellar/vim/7.4.161/bin/vim"
 #alias vim="/usr/local/bin/vim -p"
-alias vim="nv -p"
+# alias vim="nv -p"
 alias v="vim"
 
 alias nv="nvim"

@@ -29,10 +29,88 @@
 
 ---
 
+### Rust
+- `sudo apt install build-essential`
+- `curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh`
+
+--- 
+
+### Zerotier
+- Command
+  + `curl -s https://install.zerotier.com | sudo bash`
+  + `sudo zerotier-cli join xxx`
+
+---
+
+### Docker
+- [Official](https://docs.docker.com/engine/install/ubuntu/)
+- Commands
+```sh
+sudo apt-get -y install ca-certificates curl gnupg
+
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo groupadd docker
+
+newgrp docker
+```
+- Watchtower
+```sh
+docker run -d --restart=always \
+--name watchtower \
+-v /var/run/docker.sock:/var/run/docker.sock \
+containrrr/watchtower \
+--cleanup
+```
+
+---
+
+### Minio Client
+- [Official](https://min.io/docs/minio/linux/reference/minio-mc.html)
+```sh
+curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+  --create-dirs \
+  -o $HOME/minio-binaries/mc
+
+chmod +x $HOME/minio-binaries/mc
+export PATH=$PATH:$HOME/minio-binaries/
+
+mc --help
+```
+
+---
+
+### BBR optimization
+- [Use BBR to Improve the Connection With VPS](https://big533.cc/wordpress/index.php/2019/12/28/use-bbr-to-improve-the-connection-with-vps/)
+```sh
+# add kernel module
+sudo modprobe tcp_bbr
+
+# Configure kernel modules to load at boot
+echo "tcp_bbr" | sudo tee --append /etc/modules-load.d/modules.conf
+
+# Configure sysctl preload/configuration file
+echo "net.core.default_qdisc=fq" | sudo tee --append /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" | sudo tee --append /etc/sysctl.conf
+
+# configure default kernel parameters
+sudo sysctl -p
+```
+
+---
+
 ### Vim 
 - Download the `vimplug` file.
-  + `curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+  + `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 - For Neovim
   + New `.vimrc` location
     `mkdir -p ~/.config/nvim
@@ -73,3 +151,9 @@
   + `Command+'`: F12 `^[[24~` (Not `^[[24;2~`) 
 
 ---
+
+## Software 
+- [Battery](https://github.com/actuallymentor/battery)
+- [Hidden Bar](https://apps.apple.com/tw/app/hidden-bar/id1452453066?mt=12)
+- [Say no to notch](https://apps.apple.com/us/app/say-no-to-notch/id1639306886?mt=12)
+
