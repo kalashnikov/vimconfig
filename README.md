@@ -6,6 +6,10 @@
 - Tutorial for Wordpress 
   + [LEMP Stack](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04)
   + [Install Wordpress for LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04)
+- Push ssh key to remote server
+  + `ssh-copy-id -i ~/.ssh/mykey user@host`
+- Use zsh as default shell
+  + `chsh -s $(which zsh)`
 
 ---
 
@@ -39,6 +43,38 @@
 - Command
   + `curl -s https://install.zerotier.com | sudo bash`
   + `sudo zerotier-cli join xxx`
+
+---
+
+### Atuin
+- Command
+```sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+cargo install atuin
+
+sudo apt install build-essential
+
+bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+
+echo 'eval "$(atuin init zsh)"' >> ~/.zshrc
+```
+
+---
+
+### Eternal Terminal 
+- [Install](https://eternalterminal.dev/download/)
+```sh
+# Debian
+curl -sS https://mistertea.github.io/debian-et/et.gpg | apt-key add -
+apt update
+apt install et
+
+systemctl status et
+
+iptables -I INPUT -m state --state NEW -p tcp --dport 2022 -j ACCEPT
+netfilter-persistent save
+```
 
 ---
 
@@ -152,8 +188,24 @@ sudo sysctl -p
 
 ---
 
+### Useful Linux utilies
+```sh
+
+# RipGrep
+apt-get install ripgrep
+
+# Dust
+cargo install du-dust
+```
+
+---
+
 ## Software 
 - [Battery](https://github.com/actuallymentor/battery)
 - [Hidden Bar](https://apps.apple.com/tw/app/hidden-bar/id1452453066?mt=12)
 - [Say no to notch](https://apps.apple.com/us/app/say-no-to-notch/id1639306886?mt=12)
+
+---
+
+> Kala Kuo @ 2023.7.12
 
