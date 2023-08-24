@@ -43,6 +43,7 @@ set backspace=indent,eol,start " Important!! Delete may result arraow cursor mis
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let base16colorspace=256
+set completeopt-=preview
 
 if has("multi_byte")
   if &termencoding == ""
@@ -75,9 +76,9 @@ Plug 'ervandew/supertab'
 " Then, execute the :DeopleteEnable<Paste>
 "Plug 'Shougo/deoplete.nvim'
 
-" Tag
-Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/taglist.vim'
+" " Tag
+" Plug 'majutsushi/tagbar'
+" Plug 'vim-scripts/taglist.vim'
 
 " Language Support
 Plug 'elixir-lang/vim-elixir'
@@ -101,6 +102,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 " Syntax checking
 " Plug 'scrooloose/syntastic'
 " Plug 'nvie/vim-flake8'
+
+Plug 'Valloric/YouCompleteMe'
 
 " Frontend
 Plug 'mxw/vim-jsx'
