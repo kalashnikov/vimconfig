@@ -104,6 +104,11 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
 # Rust
 # export RUST_SRC_PATH="/Users/kalaexj/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-# source $HOME/.cargo/env
+source $HOME/.cargo/env
+
+export PATH=$PATH:$HOME/minio-binaries/
+
+export PATH=$PATH:$HOME/.local/bin/
+
 
 #===========================================================================#
